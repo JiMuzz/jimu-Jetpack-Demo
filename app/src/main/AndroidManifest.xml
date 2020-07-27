@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-feature android:name="android.hardware.camera.any" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +30,14 @@
         </provider>
 
         <activity android:name=".paging_room.PagingActivity" />
-        <activity android:name=".camerax.CameraActivity" />
+        <activity android:name=".camerax.CameraActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".setting.SettingActivity"/>
 
         <activity android:name=".animation.VectorActivity">
@@ -39,11 +47,7 @@
         </activity>
 
         <activity android:name=".dataBinding.DataActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
 
