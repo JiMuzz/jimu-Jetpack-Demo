@@ -1,6 +1,5 @@
 package com.panda.jetpackdemo.slice
 
-
 import android.app.PendingIntent
 import android.content.ContentResolver
 import android.content.Intent
@@ -24,7 +23,7 @@ class MySliceProvider : SliceProvider() {
     }
 
     /**
-     * Converts URL to content URI (i.e. content://com.panda.jetpackdemo...)
+     * Converts URL to content URI (i.e. content://com.panda.jetpackdemo.slice...)
      */
     override fun onMapIntentToUri(intent: Intent?): Uri {
         // Note: implementing this is only required if you plan on catching URL requests.
@@ -52,15 +51,15 @@ class MySliceProvider : SliceProvider() {
         // slice-builders-ktx for a nicer interface in Kotlin.
         val context = context ?: return null
         val activityAction = createActivityAction() ?: return null
-        return if (sliceUri.path == "/hello") {
+        return if (sliceUri.path.equals("/hello") ) {
             // Path recognized. Customize the Slice using the androidx.slice.builders API.
-            // Note: ANR and StrictMode are enforced here so don't do any heavy operations.
+            // Note: ANR and StrictMode are enforced here so don't do any heavy operations. 
             // Only bind data that is currently available in memory.
-            Log.e("lz5","1111")
+            Log.e("lz6","222")
             ListBuilder(context, sliceUri, ListBuilder.INFINITY)
                 .addRow(
                     ListBuilder.RowBuilder()
-                        .setTitle("URI found.")
+                        .setTitle("Hello World")
                         .setPrimaryAction(activityAction)
                 )
                 .build()
@@ -76,32 +75,15 @@ class MySliceProvider : SliceProvider() {
         }
     }
 
-    // [START create_slice]
-    open fun createSlice(sliceUri: Uri?): Slice? {
-        if (context == null) {
-            return null
-        }
-        val activityAction = createActivityAction()
-        return ListBuilder(
-            context!!,
-            sliceUri!!,
-            ListBuilder.INFINITY
-        ).addRow(
-                ListBuilder.RowBuilder()
-                    .setTitle("Perform action in app.")
-                    .setPrimaryAction(activityAction!!)
-            ).build()
-    }
-
     private fun createActivityAction(): SliceAction? {
-        val intent = Intent(context, SettingActivity::class.java)
+//        return null
         return SliceAction.create(
-            PendingIntent.getActivity(context, 0, Intent(context, SettingActivity::class.java), 0),
-            IconCompat.createWithResource(context,
-                R.drawable.ic_launcher_foreground
+            PendingIntent.getActivity(
+                context, 0, Intent(context, SettingActivity::class.java), 0
             ),
+            IconCompat.createWithResource(context, R.drawable.ic_launcher_foreground),
             ListBuilder.ICON_IMAGE,
-            "Enter app"
+            "Open App"
         )
     }
 
