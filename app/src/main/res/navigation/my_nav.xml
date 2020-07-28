@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:startDestination="@id/myFragment1"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/myFragment1"
+        android:name="com.panda.jetpackdemo.navigation.Fragment1"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragmetn_my_1" >
+        <action
+            android:id="@+id/action_blankFragment_to_blankFragment2"
+            app:destination="@id/myFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myFragment2"
+        android:name="com.panda.jetpackdemo.navigation.Fragment2"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragmetn_my_1" >
+        <action
+            android:id="@+id/action_blankFragment_to_blankFragment2"
+            app:destination="@id/myFragment3" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myFragment3"
+        android:name="com.panda.jetpackdemo.navigation.Fragment3"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragmetn_my_1" >
+    </fragment>
+</navigation>

@@ -38,8 +38,6 @@ class CameraActivity : AppCompatActivity() {
     private var mImageCapture: ImageCapture? = null
 
     private fun initCamera() {
-
-
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         cameraProviderFuture.addListener(Runnable {
             try {
