@@ -1,2 +1,3 @@
+include ':benchmark'
 include ':app'
 rootProject.name = "JetpackDemo"
