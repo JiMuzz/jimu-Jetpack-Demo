@@ -35,16 +35,20 @@
         <activity android:name=".camerax.CameraActivity">
         </activity>
         <activity android:name=".setting.SettingActivity" >
+        </activity>
+        <activity android:name=".animation.VectorActivity"></activity>
+        <activity android:name=".animation.FadeActivity"></activity>
+        <activity android:name=".dataBinding.DataActivity"></activity>
+
+
+        <activity android:name=".motionlayout.MotionlayoutActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".animation.VectorActivity"></activity>
-        <activity android:name=".animation.FadeActivity"></activity>
-        <activity android:name=".dataBinding.DataActivity"></activity>
     </application>
 
 </manifest>

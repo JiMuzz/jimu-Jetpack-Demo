@@ -123,4 +123,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     androidTestImplementation "androidx.benchmark:benchmark-junit4:1.0.0-beta01"
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta8'
+
 }
